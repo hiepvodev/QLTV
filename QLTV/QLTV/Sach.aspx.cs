@@ -11,7 +11,7 @@ namespace QLTV
 {
     public partial class Sach1 : System.Web.UI.Page
     {
-        string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='E:\School\KT TMDT ASP.Net\project\QLTV\QLTV\QLTV\App_Data\QLTV.mdf';Integrated Security=True";
+        ketnoi kn = new ketnoi();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Page.IsPostBack) return;
@@ -28,9 +28,7 @@ namespace QLTV
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter(q, conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+                DataTable dt = kn.laydata(q);
                 this.DataList1.DataSource = dt;
                 this.DataList1.DataBind();
             }
@@ -45,7 +43,6 @@ namespace QLTV
         {
             string masach = ((LinkButton)sender).CommandArgument;
             Context.Items["ms"] = masach;
-            Response.Redirect("ChiTietSach.aspx");
             Server.Transfer("ChiTietSach.aspx");
         }
 
@@ -53,7 +50,6 @@ namespace QLTV
         {
             string masach = ((LinkButton)sender).CommandArgument;
             Context.Items["ms"] = masach;
-            Response.Redirect("ChiTietSach.aspx");
             Server.Transfer("ChiTietSach.aspx");
         }
     }

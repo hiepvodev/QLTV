@@ -41,5 +41,25 @@ namespace QLTV
             }
             return dt;
         }
+
+        public int xuly(string sql)
+        {
+            int kq = 0;
+            try
+            {
+                layknoi();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                kq = cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                kq = 0;
+            }
+            finally
+            {
+                dongknoi();
+            }
+            return kq;
+        }
     }
 }

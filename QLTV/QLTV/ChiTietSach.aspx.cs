@@ -11,7 +11,7 @@ namespace QLTV
 {
     public partial class ChiTietSach1 : System.Web.UI.Page
     {
-        string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='E:\School\KT TMDT ASP.Net\project\QLTV\QLTV\QLTV\App_Data\QLTV.mdf';Integrated Security=True";
+        ketnoi kn = new ketnoi();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Page.IsPostBack) return;
@@ -28,9 +28,7 @@ namespace QLTV
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter(q, conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+                DataTable dt = kn.laydata(q);
                 this.DataList1.DataSource = dt;
                 this.DataList1.DataBind();
             }
@@ -38,6 +36,35 @@ namespace QLTV
             {
                 Response.Write(ex.Message);
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Button muon = (Button)sender;
+            string mahang = muon.CommandArgument.ToString();
+            DataListItem item = (DataListItem)muon.Parent;
+            string soluong = ((TextBox)item.FindControl("TextBox1")).Text;
+
+            SqlConnection con = new SqlConnection(conn);
+            con.Open();
+
+            string query = "select * from donhang where tendangnhap = '" + ten + "' and mahang= '" + mahang + "'";
+            SqlCommand command = new SqlCommand(query, con);
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                reader.Close();
+                command = new SqlCommand("update donhang set soluong = soluong +" + soluong + " where tendangnhap='" +
+                    ten + "' and mahang ='" + mahang + "'", con);
+            }
+            else
+            {
+                reader.Close();
+                command = new SqlCommand("insert into donhang values ('" + ten + "', '" + mahang + "','" + soluong + "')", con);
+            }
+            command.ExecuteNonQuery();
+            con.Close();
         }
     }
 }
