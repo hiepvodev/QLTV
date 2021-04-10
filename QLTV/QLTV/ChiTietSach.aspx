@@ -3,21 +3,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:DataList ID="DataList1" runat="server">
-            <SelectedItemTemplate>
+            <ItemTemplate>
                 <asp:Image ID="Image1" runat="server" />
                 &nbsp;&nbsp;&nbsp;
-                <asp:Label ID="Label1" runat="server" Text="Label" Text='<%# Eval("tensach") %>'></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text='<%# Eval("tensach") %>'></asp:Label>
                 <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="Label2" runat="server" Text="Label" Text='<%# Eval("mota") %>'></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text='<%# Eval("mota") %>'></asp:Label>
 
                 <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Label ID="Label3" runat="server" Text="Số lượng" ></asp:Label>
                 &nbsp;
                 <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-
-            </SelectedItemTemplate>
-
+            </ItemTemplate>
         </asp:DataList>
 </asp:Content>

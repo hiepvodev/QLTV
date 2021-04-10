@@ -45,14 +45,16 @@ namespace QLTV
         {
             string masach = ((LinkButton)sender).CommandArgument;
             Context.Items["ms"] = masach;
-            Server.Transfer("chitietsach.aspx");
+            Response.Redirect("ChiTietSach.aspx");
+            Server.Transfer("ChiTietSach.aspx");
         }
 
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
             string masach = ((LinkButton)sender).CommandArgument;
             Context.Items["ms"] = masach;
-            Server.Transfer("chitietsach.aspx");
+            Response.Redirect("ChiTietSach.aspx");
+            Server.Transfer("ChiTietSach.aspx");
         }
     }
 }
