@@ -50,7 +50,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:Button ID="Button2" runat="server" Text="Mượn sách" Width="82px" CommandName="Add"/>
+                            <asp:Button ID="Button2" runat="server" Text="Mượn sách" Width="82px" CommandName="Add" OnClick="Button2_Click"/>
                         </td>
                     </tr>
                 </table>

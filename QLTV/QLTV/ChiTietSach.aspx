@@ -27,7 +27,7 @@
                         <br />
                         <asp:Label ID="Label3" runat="server" Text="Số lượng" ></asp:Label>
                         &nbsp;
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextBox1" runat="server" Text="1"></asp:TextBox>
                         <br /><br />
                         <asp:Button ID="Button1" runat="server" Text="Mượn sách" CommandArgument='<%# Eval("masach") %>' OnClick="Button1_Click"/>
                     </div>

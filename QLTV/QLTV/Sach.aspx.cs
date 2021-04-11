@@ -14,8 +14,11 @@ namespace QLTV
         ketnoi kn = new ketnoi();
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            if (Request.Cookies["Tendangnhap"] == null) Response.Redirect("Login.aspx");
             if (Page.IsPostBack) return;
             string q;
+
             if (Context.Items["ml"] == null)
             {
                 q = "select * from sach";
@@ -51,6 +54,11 @@ namespace QLTV
             string masach = ((LinkButton)sender).CommandArgument;
             Context.Items["ms"] = masach;
             Server.Transfer("ChiTietSach.aspx");
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

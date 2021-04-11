@@ -14,6 +14,7 @@ namespace QLTV
         ketnoi kn = new ketnoi();
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (Page.IsPostBack) return;
             string q;
             if (Context.Items["ms"] == null)
@@ -41,30 +42,12 @@ namespace QLTV
         protected void Button1_Click(object sender, EventArgs e)
         {
             Button muon = (Button)sender;
-            string mahang = muon.CommandArgument.ToString();
+            string masach = muon.CommandArgument.ToString();
             DataListItem item = (DataListItem)muon.Parent;
             string soluong = ((TextBox)item.FindControl("TextBox1")).Text;
-
-            SqlConnection con = new SqlConnection(conn);
-            con.Open();
-
-            string query = "select * from donhang where tendangnhap = '" + ten + "' and mahang= '" + mahang + "'";
-            SqlCommand command = new SqlCommand(query, con);
-            SqlDataReader reader = command.ExecuteReader();
-
-            if (reader.Read())
-            {
-                reader.Close();
-                command = new SqlCommand("update donhang set soluong = soluong +" + soluong + " where tendangnhap='" +
-                    ten + "' and mahang ='" + mahang + "'", con);
-            }
-            else
-            {
-                reader.Close();
-                command = new SqlCommand("insert into donhang values ('" + ten + "', '" + mahang + "','" + soluong + "')", con);
-            }
-            command.ExecuteNonQuery();
-            con.Close();
+            DataTable dt = kn.laydata("select tensach from sach where masach='" + masach + "'");
+            string tensach = dt.Rows[0].Field<string>("tensach");
+            Server.Transfer("Cart.aspx?action=add&id=" + masach + "&name=" + tensach + "&number=" + soluong);
         }
     }
 }

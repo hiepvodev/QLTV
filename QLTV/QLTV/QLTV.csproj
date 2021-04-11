@@ -72,9 +72,12 @@
     <Content Include="App_Data\QLTV_log.ldf">
       <DependentUpon>QLTV.mdf</DependentUpon>
     </Content>
+    <Content Include="Cart.aspx" />
     <Content Include="ChiTietSach.aspx" />
     <Content Include="GioiThieu.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Login.aspx" />
+    <Content Include="PhieuMuon.aspx" />
     <Content Include="TrangChu.aspx" />
     <Content Include="Sach.aspx" />
     <Content Include="TinTuc.aspx" />
@@ -87,6 +90,13 @@
     </Compile>
     <Compile Include="App.Master.designer.cs">
       <DependentUpon>App.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="ChiTietSach.aspx.cs">
       <DependentUpon>ChiTietSach.aspx</DependentUpon>
@@ -106,6 +116,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ketnoi.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PhieuMuon.aspx.cs">
+      <DependentUpon>PhieuMuon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PhieuMuon.aspx.designer.cs">
+      <DependentUpon>PhieuMuon.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TrangChu.aspx.cs">
       <DependentUpon>TrangChu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
